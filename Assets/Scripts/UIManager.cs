@@ -7,11 +7,12 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     public GameObject zigZagPanel;
     public GameObject gameOverPanel;
+    public GameObject pauseButtonObject, resumePanelObject;
     public Text score;
     public Text HighScore1;
     public Text HighScore2;
     public Text tapText;
-    
+
 
     public void Awake()
     {
@@ -51,6 +52,20 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        resumePanelObject.gameObject.SetActive(true);
+        pauseButtonObject.gameObject.SetActive(false);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        resumePanelObject.gameObject.SetActive(false);
+        pauseButtonObject.gameObject.SetActive(true);
     }
 }

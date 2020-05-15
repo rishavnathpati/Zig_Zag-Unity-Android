@@ -32,8 +32,14 @@ public class ScoreManager : MonoBehaviour
     {
         scoreValue++;
         OnScreenScore.text = scoreValue.ToString();
+        if (scoreValue % 100 == 0)
+        {            
+            BallController.instance.speedUp();
+        }
 
     }
+
+    
 
     public void startScore()
     {

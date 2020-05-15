@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Transactions;
+using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
@@ -7,12 +8,18 @@ public class BallController : MonoBehaviour
     public GameObject particle;
     bool started;
     public static bool gameOver;
+    public static BallController instance;
 
     Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -75,5 +82,11 @@ public class BallController : MonoBehaviour
             Destroy(parti, 2f);
 
         }
+    }
+
+    public void speedUp()
+    {
+        speed++;
+        Debug.Log("Current speed is: " + speed);
     }
 }
