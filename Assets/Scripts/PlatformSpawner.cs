@@ -62,7 +62,7 @@ public class PlatformSpawner : MonoBehaviour
         int rand = Random.Range(0, 6);
         if (rand == 1)
         {
-            Instantiate(diamond, new Vector3(pos.x, pos.y + 1, pos.z), diamond.transform.rotation);
+            Instantiate(diamond, new Vector3(pos.x, pos.y + 1.2f, pos.z), diamond.transform.rotation);
         }
         rand = Random.Range(0, 10);
         if (rand == 2)
@@ -78,7 +78,7 @@ public class PlatformSpawner : MonoBehaviour
         int rand = Random.Range(0, 6);
         if (rand == 1)
         {
-            Instantiate(diamond, new Vector3(pos.x, pos.y + 1, pos.z), diamond.transform.rotation);
+            Instantiate(diamond, new Vector3(pos.x, pos.y + 1.2f, pos.z), diamond.transform.rotation);
         }
         rand = Random.Range(0, 10);
         if (rand == 3)

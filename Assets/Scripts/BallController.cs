@@ -9,6 +9,7 @@ public class BallController : MonoBehaviour
     bool started;
     public static bool gameOver;
     public static BallController instance;
+    public AudioSource collectDiamond;
 
     Rigidbody rb;
 
@@ -76,11 +77,10 @@ public class BallController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("diamond"))
         {
-
             GameObject parti = Instantiate(particle, other.gameObject.transform.position, Quaternion.identity) as GameObject;
             Destroy(other.gameObject);
             Destroy(parti, 2f);
-
+            collectDiamond.Play();
         }
     }
 
