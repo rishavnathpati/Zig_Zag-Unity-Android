@@ -551,8 +551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2, y: 523.53}
-  m_SizeDelta: {x: -4, y: -1287.488}
+  m_AnchoredPosition: {x: 0, y: 206.3}
+  m_SizeDelta: {x: 0, y: -1120.3499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183256786
 MonoBehaviour:
@@ -636,7 +636,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217030422}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -645,7 +645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000012398, y: -456.75}
+  m_AnchoredPosition: {x: -0, y: -456.75}
   m_SizeDelta: {x: 800.4374, y: 160.86575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217030424
@@ -2464,7 +2464,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f6a5c9c3bfa3d3a4f94c0a5a61c27244, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
