@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public bool GameOver;
 
-
     private void Awake()
     {
         if (instance == null)
@@ -35,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
+
         UIManager.instance.gameOver();
         ScoreManager.instance.stopScore();
         GameOver = true;

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9ba6b276d0a81d74eb9d91409643465d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - particle: {fileID: 2938249839902024525, guid: d15698d7236f1eb4ba6d798f68003566,
+      type: 3}
+  - collectDiamond: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

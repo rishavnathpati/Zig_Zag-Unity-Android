@@ -46,6 +46,11 @@ public class UIManager : MonoBehaviour
 
     public void Reset()
     {
+        //Invoke("loadScene",1f);
+        SceneManager.LoadScene(0);
+    }
+    public void loadScene()
+    {
         SceneManager.LoadScene(0);
     }
 

@@ -1,5 +1,4 @@
-﻿using System.Transactions;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
@@ -16,7 +15,7 @@ public class BallController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-    
+
         if (instance == null)
         {
             instance = this;
