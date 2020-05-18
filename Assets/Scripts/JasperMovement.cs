@@ -9,6 +9,7 @@ public class JasperMovement : MonoBehaviour
     public static bool gameOver;
     public static JasperMovement instance;
     public AudioSource collectDiamond, fallingDown;
+    public Animator animator;
 
     Rigidbody rbJasper;
 
@@ -26,6 +27,7 @@ public class JasperMovement : MonoBehaviour
     {
         started = false;
         gameOver = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,7 @@ public class JasperMovement : MonoBehaviour
             {
                 rbJasper.velocity = new Vector3(speed, 0, 0);
                 started = true;
+                animator.SetInteger("states", 1);
 
                 GameManager.instance.startGame();
             }
@@ -44,8 +47,6 @@ public class JasperMovement : MonoBehaviour
         }
 
         Debug.DrawRay(transform.position, Vector3.down, Color.red);
-        Debug.DrawRay(transform.position, Vector3.up, Color.red);
-
 
         if (!Physics.Raycast(transform.position, Vector3.down, 0.8f))
         {
@@ -78,11 +79,18 @@ public class JasperMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("diamond"))
         {
+            animator.SetInteger("states", 2);
             GameObject parti = Instantiate(particle, other.gameObject.transform.position, Quaternion.identity) as GameObject;
             Destroy(other.gameObject);
             Destroy(parti, 2f);
             collectDiamond.Play();
+            Invoke("getUp", 0.2f);
         }
+    }
+
+    public void getUp()
+    {
+        animator.SetInteger("states", 3);
     }
 
     public void speedUp()
