@@ -85,6 +85,7 @@ public class JasperMovement : MonoBehaviour
             Destroy(parti, 2f);
             collectDiamond.Play();
             Invoke("getUp", 0.2f);
+            ScoreManager.instance.incrementDiamondScore();
         }
     }
 

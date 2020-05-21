@@ -16,7 +16,7 @@ public class TriggerChecker : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Ball"))
+        if (other.gameObject.CompareTag("jasper"))
         {
             Invoke("FallDown", 0.2f);
             // Calling FallDown() after 0.2s

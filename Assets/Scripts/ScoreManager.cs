@@ -6,7 +6,9 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     public int scoreValue;
     public int highScore;
+    public int diamondValue;
     public Text OnScreenScore;
+    public Text OnScreenDiamondScore;
 
     public void Awake()
     {
@@ -19,7 +21,9 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         scoreValue = 0;
+        diamondValue = 0;
         PlayerPrefs.SetInt("score", scoreValue);
+        PlayerPrefs.SetInt("diamondscore", diamondValue);
     }
 
     // Update is called once per frame
@@ -31,12 +35,18 @@ public class ScoreManager : MonoBehaviour
     public void incrementScore()
     {
         scoreValue++;
-        OnScreenScore.text = scoreValue.ToString();
+        OnScreenScore.text = "Distance: "+scoreValue.ToString()+"m";
+        OnScreenDiamondScore.text = "Diamonds: "+ diamondValue.ToString();
         if (scoreValue % 100 == 0)
         {
             JasperMovement.instance.speedUp();
         }
 
+    }
+
+    public void incrementDiamondScore()
+    {
+        diamondValue++;
     }
 
 
@@ -51,17 +61,18 @@ public class ScoreManager : MonoBehaviour
         CancelInvoke("incrementScore");
 
         PlayerPrefs.SetInt("score", scoreValue);
+        PlayerPrefs.SetInt("diamondscore", diamondValue);
 
         if (PlayerPrefs.HasKey("highScore"))
         {
             if (scoreValue > PlayerPrefs.GetInt("highScore"))
             {
-                PlayerPrefs.SetInt("highScore", scoreValue);
+                PlayerPrefs.SetInt("highScore", diamondValue);
             }
         }
         else
         {
-            PlayerPrefs.SetInt("highScore", scoreValue);
+            PlayerPrefs.SetInt("highScore", diamondValue);
         }
     }
 }
