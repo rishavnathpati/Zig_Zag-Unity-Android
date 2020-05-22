@@ -30,22 +30,25 @@ public class JasperMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
         if (!started)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                rbJasper.velocity = new Vector3(speed, 0, 0);
-                started = true;
-                animator.SetInteger("states", 1);
 
-                GameManager.instance.startGame();
-            }
+            rbJasper.velocity = new Vector3(0, 0, speed);
+            started = true;
+            animator.SetInteger("states", 1);
+
+            GameManager.instance.startGame();
+
 
         }
+    }
 
+
+    // Update is called once per frame
+    void Update()
+    {
         Debug.DrawRay(transform.position, Vector3.down, Color.red);
 
         if (!Physics.Raycast(transform.position, Vector3.down, 0.8f))
@@ -66,7 +69,7 @@ public class JasperMovement : MonoBehaviour
         if (rbJasper.velocity.z > 0)
         {
             rbJasper.velocity = new Vector3(speed, 0, 0);
-            transform.SetPositionAndRotation(transform.position,Quaternion.Euler(0,90,0));
+            transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 90, 0));
         }
         else if (rbJasper.velocity.x > 0)
         {

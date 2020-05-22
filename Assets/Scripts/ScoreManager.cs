@@ -35,8 +35,8 @@ public class ScoreManager : MonoBehaviour
     public void incrementScore()
     {
         scoreValue++;
-        OnScreenScore.text = "Distance: "+scoreValue.ToString()+"m";
-        OnScreenDiamondScore.text = "Diamonds: "+ diamondValue.ToString();
+        OnScreenScore.text = "Distance: " + scoreValue.ToString() + "m";
+        OnScreenDiamondScore.text = "Diamonds: " + diamondValue.ToString();
         if (scoreValue % 100 == 0)
         {
             JasperMovement.instance.speedUp();
