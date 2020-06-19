@@ -6,40 +6,40 @@ public class PlatformSpawner : MonoBehaviour
     public GameObject diamond;
     public GameObject clouds;
     public Vector3 lastPos;
-    float size;
+    private float size;
     public bool gameOver;
 
     public static PlatformSpawner instance;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         lastPos = platform.transform.position;
         size = platform.transform.localScale.x;
 
         for (int i = 1; i < 20; i++)
         {
-            spawnPlatform();
+            SpawnPlatform();
         }
 
     }
 
-    public void startSpawningPlatforms()
+    public void StartSpawningPlatforms()
     {
-        InvokeRepeating("spawnPlatform", 1f, 0.2f);
+        InvokeRepeating("SpawnPlatform", 1f, 0.2f);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (GameManager.instance.GameOver == true)
+        if (GameManager.instance.gameOver == true)
         {
-            CancelInvoke("spawnPlatform");
+            CancelInvoke("SpawnPlatform");
         }
     }
 
-    public void spawnPlatform()
+    public void SpawnPlatform()
     {
 
         int rand = Random.Range(0, 6);
@@ -66,7 +66,9 @@ public class PlatformSpawner : MonoBehaviour
         }
         rand = Random.Range(0, 10);
         if (rand == 2)
+        {
             Instantiate(clouds, new Vector3(pos.x, pos.y + 10, pos.z), Quaternion.identity);
+        }
     }
 
     public void SpawnZ()
@@ -82,6 +84,8 @@ public class PlatformSpawner : MonoBehaviour
         }
         rand = Random.Range(0, 10);
         if (rand == 3)
+        {
             Instantiate(clouds, new Vector3(pos.x, pos.y - 10, pos.z - 20), Quaternion.identity);
+        }
     }
 }

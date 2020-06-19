@@ -2,7 +2,7 @@
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    Rigidbody rb;
+    private Rigidbody rb;
 
     private void Awake()
     {
@@ -10,13 +10,13 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         rb.velocity = Vector3.left;
     }

@@ -26,13 +26,13 @@ public class AnimationScript : MonoBehaviour
     private float scaleTimer;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
 

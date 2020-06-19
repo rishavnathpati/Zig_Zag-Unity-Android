@@ -3,7 +3,7 @@
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public bool GameOver;
+    public bool gameOver;
 
     private void Awake()
     {
@@ -12,31 +12,24 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        GameOver = false;
+        gameOver = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
-
-    }
-
-    public void startGame()
-    {
-        UIManager.instance.gameStart();
+        UIManager.instance.GameStart();
         ScoreManager.instance.startScore();
-        GameObject.Find("PlatformSpawner").GetComponent<PlatformSpawner>().startSpawningPlatforms();
-
+        GameObject.Find("PlatformSpawner").GetComponent<PlatformSpawner>().StartSpawningPlatforms();
     }
 
-    public void gameOver()
+    public void GameOver()
     {
-
-        UIManager.instance.gameOver();
+        UIManager.instance.GameOver();
         ScoreManager.instance.stopScore();
-        GameOver = true;
+        gameOver = true;
     }
 }

@@ -3,26 +3,27 @@
 public class CameraFollow : MonoBehaviour
 {
     public GameObject ball;
-    Vector3 offset;
+    private Vector3 offset;
     public float lerpRate;
     public bool gameOver;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         offset = ball.transform.position - transform.position;
         gameOver = false;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!gameOver)
         {
-            Follow();
+            FollowPlayer();
         }
     }
 
-    void Follow()
+    private void FollowPlayer()
     {
         Vector3 pos = transform.position;
         Vector3 targetPos = ball.transform.position - offset;

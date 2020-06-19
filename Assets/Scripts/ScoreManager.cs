@@ -17,8 +17,9 @@ public class ScoreManager : MonoBehaviour
             instance = this;
         }
     }
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         scoreValue = 0;
         diamondValue = 0;
@@ -27,7 +28,7 @@ public class ScoreManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
     }
@@ -39,7 +40,7 @@ public class ScoreManager : MonoBehaviour
         OnScreenDiamondScore.text = "Diamonds: " + diamondValue.ToString();
         if (scoreValue % 100 == 0)
         {
-            JasperMovement.instance.speedUp();
+            JasperMovement.instance.SpeedUp();
         }
 
     }

@@ -23,20 +23,19 @@ public class UIManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         HighScore1.text = PlayerPrefs.GetInt("highScore").ToString();
-
     }
 
-    public void gameStart()
+    public void GameStart()
     {
         //HighScore1.text = PlayerPrefs.GetInt("highScore").ToString();
         tapText.gameObject.SetActive(false);
         zigZagPanel.GetComponent<Animator>().Play("panelUp");
     }
 
-    public void gameOver()
+    public void GameOver()
     {
         score.text = PlayerPrefs.GetInt("score").ToString();
         HighScore2.text = PlayerPrefs.GetInt("highScore").ToString();
@@ -49,15 +48,9 @@ public class UIManager : MonoBehaviour
         //Invoke("loadScene",1f);
         SceneManager.LoadScene(0);
     }
-    public void loadScene()
+    public void LoadScene()
     {
         SceneManager.LoadScene(0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void PauseGame()

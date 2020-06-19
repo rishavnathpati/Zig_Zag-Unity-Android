@@ -2,19 +2,7 @@
 
 public class TriggerChecker : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("jasper"))
         {
@@ -23,7 +11,7 @@ public class TriggerChecker : MonoBehaviour
         }
     }
 
-    void FallDown()
+    private void FallDown()
     {
         GetComponentInParent<Rigidbody>().useGravity = true;
         GetComponentInParent<Rigidbody>().isKinematic = false;
