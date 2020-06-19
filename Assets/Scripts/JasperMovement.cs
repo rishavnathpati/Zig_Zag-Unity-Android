@@ -82,14 +82,8 @@ public class JasperMovement : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(parti, 2f);
             collectDiamond.Play();
-            Invoke("GetUp", 0.2f);
             ScoreManager.instance.IncrementDiamondScore();
         }
-    }
-
-    public void GetUp()
-    {
-        animator.SetInteger("states", 3);
     }
 
     public void SpeedUp()

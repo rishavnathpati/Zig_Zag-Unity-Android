@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject pauseButtonObject, resumePanelObject;
     public Text score;
-    public Text HighScore1;
     public Text HighScore2;
     public Text tapText;
 
@@ -25,7 +24,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        HighScore1.text = PlayerPrefs.GetInt("highScore").ToString();
+
     }
 
     public void GameStart()
@@ -46,10 +45,6 @@ public class UIManager : MonoBehaviour
     public void Reset()
     {
         //Invoke("loadScene",1f);
-        SceneManager.LoadScene(0);
-    }
-    public void LoadScene()
-    {
         SceneManager.LoadScene(0);
     }
 
