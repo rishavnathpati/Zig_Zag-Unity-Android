@@ -8,7 +8,7 @@ public class JasperMovement : MonoBehaviour
     private bool started;
     public static bool gameOver;
     public static JasperMovement instance;
-    public AudioSource collectDiamond, fallingDown;
+    public AudioSource collectDiamond;
     public Animator animator;
     private Rigidbody rbJasper;
 
@@ -83,7 +83,7 @@ public class JasperMovement : MonoBehaviour
             Destroy(parti, 2f);
             collectDiamond.Play();
             Invoke("GetUp", 0.2f);
-            ScoreManager.instance.incrementDiamondScore();
+            ScoreManager.instance.IncrementDiamondScore();
         }
     }
 

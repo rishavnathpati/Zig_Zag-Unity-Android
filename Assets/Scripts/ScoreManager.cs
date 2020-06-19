@@ -27,17 +27,12 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetInt("diamondscore", diamondValue);
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-
-    }
-
-    public void incrementScore()
+    public void IncrementScore()
     {
         scoreValue++;
         OnScreenScore.text = "Distance: " + scoreValue.ToString() + "m";
         OnScreenDiamondScore.text = "Diamonds: " + diamondValue.ToString();
+
         if (scoreValue % 100 == 0)
         {
             JasperMovement.instance.SpeedUp();
@@ -45,21 +40,21 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    public void incrementDiamondScore()
+    public void IncrementDiamondScore()
     {
         diamondValue++;
     }
 
 
 
-    public void startScore()
+    public void StartScore()
     {
-        InvokeRepeating("incrementScore", 0.1f, 0.5f);
+        InvokeRepeating("IncrementScore", 0.1f, 0.5f);
     }
 
-    public void stopScore()
+    public void StopScore()
     {
-        CancelInvoke("incrementScore");
+        CancelInvoke("IncrementScore");
 
         PlayerPrefs.SetInt("score", scoreValue);
         PlayerPrefs.SetInt("diamondscore", diamondValue);

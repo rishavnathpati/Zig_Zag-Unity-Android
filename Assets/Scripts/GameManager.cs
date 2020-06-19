@@ -22,14 +22,14 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         UIManager.instance.GameStart();
-        ScoreManager.instance.startScore();
+        ScoreManager.instance.StartScore();
         GameObject.Find("PlatformSpawner").GetComponent<PlatformSpawner>().StartSpawningPlatforms();
     }
 
     public void GameOver()
     {
         UIManager.instance.GameOver();
-        ScoreManager.instance.stopScore();
+        ScoreManager.instance.StopScore();
         gameOver = true;
     }
 }

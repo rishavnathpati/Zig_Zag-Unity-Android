@@ -9,9 +9,6 @@ public class PlatformSpawner : MonoBehaviour
     private float size;
     public bool gameOver;
 
-    public static PlatformSpawner instance;
-
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -22,7 +19,6 @@ public class PlatformSpawner : MonoBehaviour
         {
             SpawnPlatform();
         }
-
     }
 
     public void StartSpawningPlatforms()
@@ -41,7 +37,6 @@ public class PlatformSpawner : MonoBehaviour
 
     public void SpawnPlatform()
     {
-
         int rand = Random.Range(0, 6);
         if (rand < 3)
         {
