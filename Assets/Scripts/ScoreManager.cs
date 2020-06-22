@@ -37,7 +37,6 @@ public class ScoreManager : MonoBehaviour
         {
             JasperMovement.instance.SpeedUp();
         }
-
     }
 
     public void IncrementDiamondScore()

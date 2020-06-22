@@ -39,7 +39,6 @@ public class UIManager : MonoBehaviour
         score.text = PlayerPrefs.GetInt("score").ToString();
         HighScore2.text = PlayerPrefs.GetInt("highScore").ToString();
         gameOverPanel.SetActive(true);
-
     }
 
     public void Reset()
