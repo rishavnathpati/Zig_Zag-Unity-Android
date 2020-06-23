@@ -11,6 +11,7 @@ public class JasperMovement : MonoBehaviour
     public AudioSource collectDiamond;
     public Animator animator;
     private Rigidbody rbJasper;
+    private Vector3 playerPos;
 
     private void Awake()
     {
@@ -51,11 +52,11 @@ public class JasperMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !gameOverIs)
         {
-            SwitchDirection();
+            playerPos = SwitchDirection();
         }
     }
 
-    private void SwitchDirection()
+    private Vector3 SwitchDirection()
     {
         if (rbJasper.velocity.z > 0)
         {
@@ -67,6 +68,8 @@ public class JasperMovement : MonoBehaviour
             rbJasper.velocity = new Vector3(0, 0, speed);
             transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, 0));
         }
+
+        return transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
