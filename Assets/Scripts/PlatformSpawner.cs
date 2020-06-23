@@ -25,7 +25,6 @@ public class PlatformSpawner : MonoBehaviour
         InvokeRepeating("SpawnPlatform", 1f, 0.2f);
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (JasperMovement.gameOverIs == true)
@@ -53,13 +52,13 @@ public class PlatformSpawner : MonoBehaviour
         pos.x += size;
         lastPos = pos;
         Instantiate(platform, pos, Quaternion.identity);
-        int rand = Random.Range(0, 6);
-        if (rand == 1)
+
+        if (Random.Range(0, 6) == 1)
         {
             Instantiate(diamond, new Vector3(pos.x, pos.y + 1.2f, pos.z), diamond.transform.rotation);
         }
-        rand = Random.Range(0, 10);
-        if (rand == 2)
+
+        if (Random.Range(0, 10) == 2)
         {
             Instantiate(clouds, new Vector3(pos.x, pos.y + 10, pos.z), Quaternion.identity);
         }
@@ -71,13 +70,13 @@ public class PlatformSpawner : MonoBehaviour
         pos.z += size;
         lastPos = pos;
         Instantiate(platform, pos, Quaternion.identity);
-        int rand = Random.Range(0, 6);
-        if (rand == 1)
+
+        if (Random.Range(0, 6) == 1)
         {
             Instantiate(diamond, new Vector3(pos.x, pos.y + 1.2f, pos.z), diamond.transform.rotation);
         }
-        rand = Random.Range(0, 10);
-        if (rand == 3)
+
+        if (Random.Range(0, 10) == 2)
         {
             Instantiate(clouds, new Vector3(pos.x, pos.y - 10, pos.z - 20), Quaternion.identity);
         }
