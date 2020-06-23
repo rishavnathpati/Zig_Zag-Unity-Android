@@ -3,7 +3,6 @@
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public bool gameOver;
 
     private void Awake()
     {
@@ -13,10 +12,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
-        gameOver = false;
+        JasperMovement.gameOverIs = false;
     }
 
     public void StartGame()
@@ -30,6 +28,7 @@ public class GameManager : MonoBehaviour
     {
         UIManager.instance.GameOver();
         ScoreManager.instance.StopScore();
-        gameOver = true;
+        JasperMovement.gameOverIs = true;
+        Debug.Log("Game Over");
     }
 }

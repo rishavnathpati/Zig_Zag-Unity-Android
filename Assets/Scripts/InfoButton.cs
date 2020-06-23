@@ -2,36 +2,6 @@
 
 public class InfoButton : MonoBehaviour
 {
-    private bool btnPressed;
-    public GameObject infoPanel;
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        btnPressed = false;
-    }
-
-    public void StartGameButton()
-    {
-        JasperMovement.instance.StartGame();
-    }
-
-    public void DevInfoButton()
-    {
-        //infoPanel.SetActive(true);
-
-        if (btnPressed == false)
-        {
-            infoPanel.SetActive(true);
-            btnPressed = true;
-        }
-        else if (btnPressed == true)
-        {
-            infoPanel.SetActive(false);
-            btnPressed = false;
-        }
-    }
-
     public void fbButton()
     {
         Application.OpenURL("https://www.facebook.com/rishav.pati.1");

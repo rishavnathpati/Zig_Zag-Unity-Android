@@ -7,7 +7,6 @@ public class PlatformSpawner : MonoBehaviour
     public GameObject clouds;
     public Vector3 lastPos;
     private float size;
-    public bool gameOver;
 
     // Start is called before the first frame update
     private void Start()
@@ -29,7 +28,7 @@ public class PlatformSpawner : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (GameManager.instance.gameOver == true)
+        if (JasperMovement.gameOverIs == true)
         {
             CancelInvoke("SpawnPlatform");
         }

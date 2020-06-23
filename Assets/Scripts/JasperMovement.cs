@@ -6,7 +6,7 @@ public class JasperMovement : MonoBehaviour
     public float speed;
     public GameObject particle;
     private bool started;
-    public static bool gameOver;
+    public static bool gameOverIs;
     public static JasperMovement instance;
     public AudioSource collectDiamond;
     public Animator animator;
@@ -22,11 +22,10 @@ public class JasperMovement : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
         started = false;
-        gameOver = false;
+        gameOverIs = false;
         animator = GetComponent<Animator>();
     }
 
@@ -41,19 +40,16 @@ public class JasperMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     private void Update()
     {
         Debug.DrawRay(transform.position, Vector3.down, Color.red);
 
         if (!Physics.Raycast(transform.position, Vector3.down, 0.8f))
         {
-            rbJasper.velocity = new Vector3(0, -10f, 0);
-            //fallingDown.Play();
             Invoke("FallDown", 1f);
         }
 
-        if (Input.GetMouseButtonDown(0) && !gameOver)
+        if (Input.GetMouseButtonDown(0) && !gameOverIs)
         {
             SwitchDirection();
         }
@@ -94,7 +90,7 @@ public class JasperMovement : MonoBehaviour
 
     public void FallDown()
     {
-        gameOver = true;
+        gameOverIs = true;
         Camera.main.GetComponent<CameraFollow>().gameOver = true;
         GameManager.instance.GameOver();
     }
