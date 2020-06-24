@@ -2,16 +2,17 @@
 
 public class JasperMovement : MonoBehaviour
 {
-    [SerializeField]
     public float speed;
-    public GameObject particle;
-    private bool started;
+    private bool startRaycast;
     public static bool gameOverIs;
     public static JasperMovement instance;
     public AudioSource collectDiamond;
     public Animator animator;
+    public GameObject PlatformStart;
+    public GameObject particle;
+
+    private bool started;
     private Rigidbody rbJasper;
-    private Vector3 playerPos;
 
     private void Awake()
     {
@@ -23,11 +24,17 @@ public class JasperMovement : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Start()
     {
         started = false;
         gameOverIs = false;
+        startRaycast = true;
         animator = GetComponent<Animator>();
+    }
+
+    private void StartRaycast()
+    {
+        startRaycast = true;
     }
 
     public void StartGame()
@@ -43,20 +50,26 @@ public class JasperMovement : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(transform.position, Vector3.down, Color.red);
-
-        if (!Physics.Raycast(transform.position, Vector3.down, 0.8f))
+        if (startRaycast && !gameOverIs)
         {
-            Invoke("FallDown", 1f);
+            Debug.DrawRay(transform.position, Vector3.down, Color.red);
+
+            if (!Physics.Raycast(transform.position, Vector3.down, 0.8f))
+            {
+                gameOverIs = true;
+                rbJasper.velocity = new Vector3(0, -10f, 0);
+                Debug.Log("Invoked Falldown");
+                Invoke("RespawnPlayer", 2f);
+            }
         }
 
         if (Input.GetMouseButtonDown(0) && !gameOverIs)
         {
-            playerPos = SwitchDirection();
+            SwitchDirection();
         }
     }
 
-    private Vector3 SwitchDirection()
+    private void SwitchDirection()
     {
         if (rbJasper.velocity.z > 0)
         {
@@ -68,8 +81,17 @@ public class JasperMovement : MonoBehaviour
             rbJasper.velocity = new Vector3(0, 0, speed);
             transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, 0));
         }
+    }
 
-        return transform.position;
+    public void RespawnPlayer()
+    {
+        started = false;
+        gameOverIs = false;
+        startRaycast = false;
+        Invoke("StartRaycast", 2f);
+        StartGame();
+        transform.position = new Vector3(transform.position.x, 1.11f, transform.position.z);
+        Instantiate(PlatformStart, new Vector3(transform.position.x, 0.55f, transform.position.z), Quaternion.identity);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -93,6 +115,7 @@ public class JasperMovement : MonoBehaviour
 
     public void FallDown()
     {
+        Debug.Log("Fall down reached, calling Game over");
         gameOverIs = true;
         Camera.main.GetComponent<CameraFollow>().gameOver = true;
         GameManager.instance.GameOver();

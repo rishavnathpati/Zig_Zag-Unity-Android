@@ -38,6 +38,11 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void Respawn()
+    {
+        JasperMovement.instance.RespawnPlayer();
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0;
